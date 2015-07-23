@@ -7,6 +7,7 @@ use yii\web\Controller;
 use yii\helpers\Url;
 
 
+
 class SiteController extends Controller
 {
     public function actions()
@@ -21,10 +22,20 @@ class SiteController extends Controller
             ],
         ];
     }
-
+    
+   
     public function actionIndex()
     {
-        return $this->render('index');
+        $carUrl =  Url::to('');
+        
+        if($carUrl=="/site"){    
+            throw new \yii\web\NotFoundHttpException;
+        }else{
+            return $this->render('index');
+        }
     }
+   
 
 }
+
+
